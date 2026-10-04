@@ -33,7 +33,7 @@ function Favorites({
                             </button>
 
                             <button
-                                className={styles.remove}
+                                className="button"
                                 type="button"
                                 onClick={() => onRemoveFavorite(dog)}
                             >

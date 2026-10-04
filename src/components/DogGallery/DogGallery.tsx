@@ -1,26 +1,40 @@
 import type { Dog } from '../../types/dog';
+import { formatBreed } from '../../utils/formatBreed';
 import styles from './DogGallery.module.css';
-import {formatBreed} from "../../utils/formatBreed.ts";
 
 interface DogGalleryProps {
     dogs: Dog[];
+    selectedDog: Dog | null;
     onSelectDog: (dog: Dog) => void;
 }
 
-function DogGallery({ dogs, onSelectDog }: DogGalleryProps) {
+function DogGallery({
+                        dogs,
+                        selectedDog,
+                        onSelectDog,
+                    }: DogGalleryProps) {
     return (
         <section className={styles.dogGallery}>
-            {dogs.map((dog) => (
-                <button
-                    className={styles.dogThumbnail}
-                    key={dog.imageUrl}
-                    type="button"
-                    onClick={() => onSelectDog(dog)}
-                >
-                    <img src={dog.imageUrl} alt={formatBreed(dog.breed)} />
-                    <span>{formatBreed(dog.breed)}</span>
-                </button>
-            ))}
+            {dogs.map((dog) => {
+                const isSelected = dog.imageUrl === selectedDog?.imageUrl;
+
+                return (
+                    <button
+                        className={`${styles.dogThumbnail} ${
+                            isSelected ? styles.selected : ''
+                        }`}
+                        key={dog.imageUrl}
+                        type="button"
+                        onClick={() => onSelectDog(dog)}
+                    >
+                        <img
+                            src={dog.imageUrl}
+                            alt={formatBreed(dog.breed)}
+                        />
+                        <span>{formatBreed(dog.breed)}</span>
+                    </button>
+                );
+            })}
         </section>
     );
 }

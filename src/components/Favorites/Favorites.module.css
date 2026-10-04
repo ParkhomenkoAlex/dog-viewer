@@ -49,12 +49,3 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
-.remove {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #fff;
-    font: inherit;
-    cursor: pointer;
-}

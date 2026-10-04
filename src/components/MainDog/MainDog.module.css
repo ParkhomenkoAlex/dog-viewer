@@ -10,6 +10,10 @@
     border-radius: 12px;
 }
 
+.info {
+    text-align: center;
+}
+
 .mainDog h2 {
     text-transform: capitalize;
 }
