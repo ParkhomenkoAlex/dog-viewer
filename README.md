@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# Dog Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dog Viewer is a small React and TypeScript application that displays random dog images and their breeds from the Dog API. Users can browse dogs and add selected dogs to a favorites list.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://dog-viewer-kappa.vercel.app
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Random dog images from the Dog API
+- Main dog image with breed name
+- 10 dog thumbnails
+- Main dog selection from thumbnails
+- Smooth thumbnail hover effect
+- Favorites list
+- Dog selection from favorites
+- Favorite removal
+- Duplicate favorite prevention
+- Loading and error handling
+- Responsive layout
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- CSS Modules
+- [Dog API](https://dog.ceo/dog-api/documentation)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+- Node.js
+- pnpm
+
+### Installation
+
+```bash
+git clone https://github.com/ParkhomenkoAlex/dog-viewer.git
+cd dog-viewer
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+pnpm dev
 ```
+
+Vite will print the local development URL in the terminal.
+
+## Available Scripts
+
+- `pnpm dev` — starts the Vite development server.
+- `pnpm build` — type-checks the project and creates a production build.
+- `pnpm lint` — runs ESLint.
+- `pnpm format` — formats files with Prettier.
+- `pnpm format:check` — checks formatting with Prettier.
+- `pnpm preview` — serves the production build locally.
+
+## API
+
+This application uses the [Dog API](https://dog.ceo/dog-api/documentation) for dog images and breed data.
+
+## Notes
+
+This project was built as a one-hour coding assignment. The structure is intentionally kept simple and easy to extend for follow-up interview tasks.
