@@ -1,5 +1,6 @@
 import type { Dog } from '../../types/dog';
 import styles from './DogGallery.module.css';
+import {formatBreed} from "../../utils/formatBreed.ts";
 
 interface DogGalleryProps {
     dogs: Dog[];
@@ -16,8 +17,8 @@ function DogGallery({ dogs, onSelectDog }: DogGalleryProps) {
                     type="button"
                     onClick={() => onSelectDog(dog)}
                 >
-                    <img src={dog.imageUrl} alt={dog.breed} />
-                    <span>{dog.breed}</span>
+                    <img src={dog.imageUrl} alt={formatBreed(dog.breed)} />
+                    <span>{formatBreed(dog.breed)}</span>
                 </button>
             ))}
         </section>
