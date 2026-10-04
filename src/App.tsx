@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getRandomDogs } from './api/dogs';
+import DogGallery from './components/DogGallery/DogGallery';
+import MainDog from './components/MainDog/MainDog';
 import type { Dog } from './types/dog';
 import styles from './App.module.css';
 
@@ -26,26 +28,9 @@ function App() {
         <main className={styles.app}>
             <h1>Dog Viewer</h1>
 
-            {selectedDog && (
-                <section className={styles.mainDog}>
-                    <img src={selectedDog.imageUrl} alt={selectedDog.breed} />
-                    <h2>{selectedDog.breed}</h2>
-                </section>
-            )}
+            {selectedDog && <MainDog dog={selectedDog} />}
 
-            <section className={styles.dogGallery}>
-                {dogs.map((dog) => (
-                    <button
-                        className={styles.dogThumbnail}
-                        key={dog.imageUrl}
-                        type="button"
-                        onClick={() => setSelectedDog(dog)}
-                    >
-                        <img src={dog.imageUrl} alt={dog.breed} />
-                        <span>{dog.breed}</span>
-                    </button>
-                ))}
-            </section>
+            <DogGallery dogs={dogs} onSelectDog={setSelectedDog} />
         </main>
     );
 }

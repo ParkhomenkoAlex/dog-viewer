@@ -1,0 +1,21 @@
+.mainDog {
+    margin-bottom: 32px;
+}
+
+.mainDog img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.mainDog h2 {
+    text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+    .mainDog img {
+        height: 280px;
+    }
+}
