@@ -13,6 +13,9 @@
     overflow: hidden;
     font: inherit;
     cursor: pointer;
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
 }
 
 .dogThumbnail img {
@@ -32,6 +35,11 @@
     display: block;
     margin-top: 8px;
     text-transform: capitalize;
+}
+
+.selected {
+    border-color: #222;
+    box-shadow: 0 0 0 1px #222;
 }
 
 @media (max-width: 768px) {

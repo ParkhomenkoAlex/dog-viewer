@@ -10,6 +10,8 @@ function App() {
     const [dogs, setDogs] = useState<Dog[]>([]);
     const [selectedDog, setSelectedDog] = useState<Dog | null>(null);
     const [favorites, setFavorites] = useState<Dog[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         async function loadDogs() {
@@ -20,6 +22,9 @@ function App() {
                 setSelectedDog(dogs[0]);
             } catch (error) {
                 console.error(error);
+                setError('Failed to load dogs. Please try again later.');
+            } finally {
+                setIsLoading(false);
             }
         }
 
@@ -52,24 +57,34 @@ function App() {
         <main className={styles.app}>
             <h1>Dog Viewer</h1>
 
-            <div className={styles.layout}>
-                <div className={styles.content}>
-                    {selectedDog && (
-                        <MainDog
-                            dog={selectedDog}
-                            onAddToFavorites={addToFavorites}
+            {isLoading && <p>Loading dogs...</p>}
+
+            {error && <p className={styles.error}>{error}</p>}
+
+            {!isLoading && !error && (
+                <div className={styles.layout}>
+                    <div className={styles.content}>
+                        {selectedDog && (
+                            <MainDog
+                                dog={selectedDog}
+                                onAddToFavorites={addToFavorites}
+                            />
+                        )}
+
+                        <DogGallery
+                            dogs={dogs}
+                            selectedDog={selectedDog}
+                            onSelectDog={setSelectedDog}
                         />
-                    )}
+                    </div>
 
-                    <DogGallery dogs={dogs} onSelectDog={setSelectedDog} />
+                    <Favorites
+                        favorites={favorites}
+                        onSelectDog={setSelectedDog}
+                        onRemoveFavorite={removeFromFavorites}
+                    />
                 </div>
-
-                <Favorites
-                    favorites={favorites}
-                    onSelectDog={setSelectedDog}
-                    onRemoveFavorite={removeFromFavorites}
-                />
-            </div>
+            )}
         </main>
     );
 }

@@ -16,6 +16,7 @@ function MainDog({ dog, onAddToFavorites }: MainDogProps) {
                 <h2>{formatBreed(dog.breed)}</h2>
 
                 <button
+                    className="button"
                     type="button"
                     onClick={() => onAddToFavorites(dog)}
                 >
