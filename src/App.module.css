@@ -1,11 +1,26 @@
 .app {
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 32px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 32px;
+    align-items: start;
+}
+
+.content {
+    min-width: 0;
 }
 
 @media (max-width: 768px) {
     .app {
         padding: 16px;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
     }
 }
