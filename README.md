@@ -1,5 +1,14 @@
 # Dog Viewer
 
+> 🚀 **Extended development continues in Advanced Dog Viewer**
+>
+> This repository contains the original implementation created within the scope of the initial coding assignment and is intentionally kept as the baseline version.
+>
+> All further development — including new features, architectural improvements, UX enhancements, testing, and production-oriented improvements — is being implemented separately in **Advanced Dog Viewer**:
+>
+> - **Live Demo:** https://advanced-dog-viewer.vercel.app/
+> - **GitHub Repository:** https://github.com/ParkhomenkoAlex/advanced-dog-viewer
+
 Dog Viewer is a small React and TypeScript application that displays random dog images and their breeds from the Dog API. Users can browse dogs and add selected dogs to a favorites list.
 
 ## Live Demo
